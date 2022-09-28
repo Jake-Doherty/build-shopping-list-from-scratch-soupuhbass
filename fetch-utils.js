@@ -1,5 +1,6 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://tybfgetbgtrxyzothjyn.supabase.co';
+const SUPABASE_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5YmZnZXRiZ3RyeHl6b3RoanluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ0MDY1MzAsImV4cCI6MTk3OTk4MjUzMH0.auIefiG5jH98P6Wl_NU4TKQnkJLjr_FPBd9mx7_3zWo';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
