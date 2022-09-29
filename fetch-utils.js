@@ -28,3 +28,8 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+/* create grocery list item on supabase */
+export async function createGroceryItem(item) {
+    return await client.from('lists').insert(item).single();
+}
