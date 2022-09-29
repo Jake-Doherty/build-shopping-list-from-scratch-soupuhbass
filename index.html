@@ -13,7 +13,7 @@
         <!-- js -->
         <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
         <script type="module" src="app.js"></script>
-        <script src="../build-shopping-list-from-scratch-soupuhbass/auth/auth.js"></script>
+        <script type="mudule" src="./auth/auth.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,6 +39,16 @@
             </nav>
         </header>
 
-        <main></main>
+        <main>
+            <form id="grocery-item-input-form" action="submit">
+                <input type="text" name="quantity" id="quantity-input" />
+                <input type="text" name="item" id="item-input" />
+                <button id="add-item-button">+</button>
+            </form>
+            <p id="error-display"></p>
+            <ul id="shopping-list">
+                <li class="grocery-item"></li>
+            </ul>
+        </main>
     </body>
 </html>
