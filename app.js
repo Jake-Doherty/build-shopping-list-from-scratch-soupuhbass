@@ -1,13 +1,19 @@
 /* Imports */
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
-import { createGroceryItem, getGroceryItem, updateGroceryItem } from './fetch-utils.js';
+import {
+    createGroceryItem,
+    deleteGroceryList,
+    getGroceryItem,
+    updateGroceryItem,
+} from './fetch-utils.js';
 import { renderGroceryItem } from './render-utils.js';
 
 /* Get DOM Elements */
 const createGroceryItemInputForm = document.getElementById('grocery-item-input-form');
 const errorDisplay = document.getElementById('error-display');
 const shoppingList = document.getElementById('shopping-list');
+const deleteAll = document.getElementById('delete-list');
 
 /* State */
 let items = [];
@@ -47,6 +53,19 @@ createGroceryItemInputForm.addEventListener('submit', async (e) => {
         items.push(item);
         displayGroceryItem();
         createGroceryItemInputForm.reset();
+    }
+});
+
+deleteAll.addEventListener('click', async () => {
+    const response = await deleteGroceryList();
+
+    error = response.error;
+
+    if (error) {
+        error = error.message;
+    } else {
+        items = [];
+        displayGroceryItem();
     }
 });
 
