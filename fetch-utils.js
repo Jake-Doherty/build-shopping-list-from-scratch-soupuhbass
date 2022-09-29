@@ -37,3 +37,7 @@ export async function createGroceryItem(item) {
 export async function getGroceryItem() {
     return await client.from('lists').select();
 }
+
+export async function updateGroceryItem(id) {
+    return await client.from('lists').update({ bought: true }).eq('id', id).single();
+}
