@@ -41,3 +41,9 @@ export async function getGroceryItem() {
 export async function updateGroceryItem(id) {
     return await client.from('lists').update({ bought: true }).eq('id', id).single();
 }
+
+export async function deleteGroceryList() {
+    const user = getUser();
+
+    return await client.from('lists').delete().eq('user_id', user.id);
+}
