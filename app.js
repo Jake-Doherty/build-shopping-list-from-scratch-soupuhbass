@@ -1,7 +1,7 @@
 /* Imports */
 // this will check if we have a user and set signout link if it exists
 import './auth/user.js';
-import { createGroceryItem, getGroceryItem } from './fetch-utils.js';
+import { createGroceryItem, getGroceryItem, updateGroceryItem } from './fetch-utils.js';
 import { renderGroceryItem } from './render-utils.js';
 
 /* Get DOM Elements */
@@ -62,5 +62,27 @@ function displayGroceryItem() {
     for (const item of items) {
         const itemEl = renderGroceryItem(item);
         shoppingList.append(itemEl);
+
+        if (item.bought === true) {
+            itemEl.classList.add('purchased');
+        }
+        itemEl.addEventListener('click', async () => {
+            const response = await updateGroceryItem(item.id);
+
+            error = response.error;
+            const updatedItem = response.data;
+
+            if (item.bought === true) {
+                return;
+            }
+
+            if (error) {
+                displayError();
+            } else {
+                const index = items.indexOf(item);
+                items[index] = updatedItem;
+                displayGroceryItem();
+            }
+        });
     }
 }
