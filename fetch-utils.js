@@ -33,3 +33,7 @@ export async function signOutUser() {
 export async function createGroceryItem(item) {
     return await client.from('lists').insert(item).single();
 }
+
+export async function getGroceryItem() {
+    return await client.from('lists').select();
+}
