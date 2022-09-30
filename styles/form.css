@@ -1,3 +1,43 @@
+body {
+    width: 100%;
+    background-image: url('/assets/shopping-background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    justify-items: center;
+}
+
+nav > div > a {
+    padding: 3px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+    background-color: darkred;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.link-border-box {
+    padding: 8px 4px;
+    background-color: darkred;
+    border-radius: 5px;
+}
+
+.link-border-box:hover {
+    transform: scale(105%);
+    transition: all 250ms ease-in;
+    box-shadow: 2px 3px 5px 2px black;
+}
+
+main {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
 form:not(.inline) {
     width: 100%;
     margin: auto;
