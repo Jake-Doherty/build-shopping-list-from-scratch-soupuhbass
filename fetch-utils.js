@@ -47,3 +47,8 @@ export async function deleteGroceryList() {
 
     return await client.from('lists').delete().eq('user_id', user.id);
 }
+
+export async function deleteGrabbed() {
+    const user = getUser();
+    return await client.from('lists').delete().match({ bought: true }).eq('user_id', user.id);
+}
