@@ -3,6 +3,7 @@
 import './auth/user.js';
 import {
     createGroceryItem,
+    deleteGrabbed,
     deleteGroceryList,
     getGroceryItem,
     updateGroceryItem,
@@ -14,6 +15,7 @@ const createGroceryItemInputForm = document.getElementById('grocery-item-input-f
 const errorDisplay = document.getElementById('error-display');
 const shoppingList = document.getElementById('shopping-list');
 const deleteAll = document.getElementById('delete-list');
+const deleteCompleted = document.getElementById('delete-completed');
 
 /* State */
 let items = [];
@@ -69,6 +71,27 @@ deleteAll.addEventListener('click', async () => {
     }
 });
 
+deleteCompleted.addEventListener('click', async () => {
+    const response = await deleteGrabbed();
+
+    const stillNeed = [];
+    for (const item of items) {
+        if (item.bought === false) {
+            stillNeed.push(item);
+        }
+    }
+
+    items = stillNeed;
+
+    error = response.error;
+
+    if (error) {
+        error = error.message;
+    } else {
+        displayGroceryItem();
+    }
+});
+
 /* Display Functions */
 function displayError() {
     // eslint-disable-next-line no-console
@@ -85,6 +108,7 @@ function displayGroceryItem() {
         if (item.bought === true) {
             itemEl.classList.add('purchased');
         }
+
         itemEl.addEventListener('click', async () => {
             const response = await updateGroceryItem(item.id);
 
