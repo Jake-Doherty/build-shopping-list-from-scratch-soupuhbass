@@ -1,14 +1,20 @@
-import { displayGroceryItem } from './app.js';
+import { displayGroceryItem, fetchData, shoppingList } from './app.js';
 import { deleteSingleItem } from './fetch-utils.js';
 
 let error = null;
 
 export function renderGroceryItem(item) {
+    const listButtCont = document.createElement('div');
+    listButtCont.classList.add('grocery-item');
+
     const li = document.createElement('li');
 
     const button = document.createElement('button');
     button.classList.add('delete-single-item');
     button.textContent = 'Remove Item';
+
+    const p = document.createElement('p');
+    p.textContent = `${item.quantity} ${item.item}`;
 
     button.addEventListener('click', async () => {
         const response = await deleteSingleItem(item.id);
@@ -18,14 +24,16 @@ export function renderGroceryItem(item) {
         if (error) {
             error = error.message;
         } else {
+            li.parentNode.remove();
+
+            await fetchData();
             displayGroceryItem();
         }
     });
 
-    const p = document.createElement('p');
-    p.textContent = `${item.quantity} ${item.item}`;
+    listButtCont.append(li, button);
 
-    li.append(p, button);
+    li.append(p);
 
-    return li;
+    return listButtCont;
 }
