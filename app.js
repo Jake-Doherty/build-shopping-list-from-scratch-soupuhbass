@@ -99,7 +99,7 @@ function displayError() {
     errorDisplay.textContent = error.message;
 }
 
-function displayGroceryItem() {
+export function displayGroceryItem() {
     shoppingList.innerHTML = '';
     for (const item of items) {
         const itemEl = renderGroceryItem(item);
