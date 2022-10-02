@@ -13,20 +13,24 @@ import { renderGroceryItem } from './render-utils.js';
 /* Get DOM Elements */
 const createGroceryItemInputForm = document.getElementById('grocery-item-input-form');
 const errorDisplay = document.getElementById('error-display');
-const shoppingList = document.getElementById('shopping-list');
+export const shoppingList = document.getElementById('shopping-list');
 const deleteAll = document.getElementById('delete-list');
 const deleteCompleted = document.getElementById('delete-completed');
 
 /* State */
-let items = [];
+export let items = [];
 let error = null;
 
-/* Events */
-window.addEventListener('load', async () => {
+export async function fetchData() {
     const response = await getGroceryItem();
 
     error = response.error;
     items = response.data;
+}
+
+/* Events */
+window.addEventListener('load', async () => {
+    await fetchData();
 
     if (error) {
         displayError();
@@ -99,7 +103,8 @@ function displayError() {
     errorDisplay.textContent = error.message;
 }
 
-export function displayGroceryItem() {
+export async function displayGroceryItem() {
+    await fetchData();
     shoppingList.innerHTML = '';
     for (const item of items) {
         const itemEl = renderGroceryItem(item);
