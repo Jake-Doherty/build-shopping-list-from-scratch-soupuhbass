@@ -1,4 +1,4 @@
-import { displayGroceryItem, fetchData, shoppingList } from './app.js';
+import { displayGroceryItem, fetchData } from './app.js';
 import { deleteSingleItem } from './fetch-utils.js';
 
 let error = null;

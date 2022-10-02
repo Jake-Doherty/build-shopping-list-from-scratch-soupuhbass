@@ -13,7 +13,7 @@ import { renderGroceryItem } from './render-utils.js';
 /* Get DOM Elements */
 const createGroceryItemInputForm = document.getElementById('grocery-item-input-form');
 const errorDisplay = document.getElementById('error-display');
-export const shoppingList = document.getElementById('shopping-list');
+const shoppingList = document.getElementById('shopping-list');
 const deleteAll = document.getElementById('delete-list');
 const deleteCompleted = document.getElementById('delete-completed');
 
