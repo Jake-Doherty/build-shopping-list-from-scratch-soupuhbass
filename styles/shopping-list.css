@@ -52,12 +52,58 @@ form {
     gap: 5px;
 }
 
+#add-item-button {
+    margin: 0 5px 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#add-item-button:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
+
 #delete-list {
     margin: 0 5px 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#delete-list:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
 }
 
 #delete-completed {
     margin: 0 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#delete-completed:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
 }
 
 #form-and-delete-container {
@@ -99,12 +145,38 @@ ul {
 }
 
 li {
-    background-color: antiquewhite;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0 5px;
+    background-color: darkred;
     font-weight: bold;
-    color: darkred;
-    text-shadow: ;
+    color: antiquewhite;
+    text-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.521);
+    border-radius: 5px;
 }
 
 .purchased {
     text-decoration: line-through;
+}
+
+.grocery-item {
+    background: linear-gradient(0deg, rgb(119, 111, 101), rgb(250, 235, 215));
+    border-radius: 5px;
+}
+
+.delete-single-item {
+    margin-bottom: 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+.delete-single-item:hover {
+    transform: scale(105%);
+    transition: all 250ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
 }
