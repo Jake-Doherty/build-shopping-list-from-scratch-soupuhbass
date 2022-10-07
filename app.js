@@ -5,6 +5,7 @@ import {
     createGroceryItem,
     deleteGrabbed,
     deleteGroceryList,
+    deleteSingleItem,
     getGroceryItem,
     updateGroceryItem,
 } from './fetch-utils.js';
@@ -108,7 +109,16 @@ export async function displayGroceryItem() {
     shoppingList.innerHTML = '';
     for (const item of items) {
         const itemEl = renderGroceryItem(item);
-        shoppingList.append(itemEl);
+
+        const listButtCont = document.createElement('div');
+        listButtCont.classList.add('grocery-item');
+
+        const button = document.createElement('button');
+        button.classList.add('delete-single-item');
+        button.textContent = 'Remove Item';
+
+        listButtCont.append(itemEl, button);
+        shoppingList.append(listButtCont);
 
         if (item.bought === true) {
             itemEl.classList.add('purchased');
@@ -129,6 +139,21 @@ export async function displayGroceryItem() {
             } else {
                 const index = items.indexOf(item);
                 items[index] = updatedItem;
+                displayGroceryItem();
+            }
+        });
+
+        button.addEventListener('click', async () => {
+            const response = await deleteSingleItem(item.id);
+
+            error = response.error;
+
+            if (error) {
+                error = error.message;
+            } else {
+                button.parentNode.remove();
+
+                await fetchData();
                 displayGroceryItem();
             }
         });
