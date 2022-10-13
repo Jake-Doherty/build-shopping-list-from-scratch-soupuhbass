@@ -1,5 +1,6 @@
-const SUPABASE_URL = '';
-const SUPABASE_KEY = '';
+const SUPABASE_URL = 'https://tybfgetbgtrxyzothjyn.supabase.co';
+const SUPABASE_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5YmZnZXRiZ3RyeHl6b3RoanluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQ0MDY1MzAsImV4cCI6MTk3OTk4MjUzMH0.auIefiG5jH98P6Wl_NU4TKQnkJLjr_FPBd9mx7_3zWo';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Auth related functions */
@@ -27,3 +28,30 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+/* create grocery list item on supabase */
+export async function createGroceryItem(item) {
+    return await client.from('lists').insert(item).single();
+}
+
+export async function getGroceryItem() {
+    return await client.from('lists').select();
+}
+
+export async function updateGroceryItem(id) {
+    return await client.from('lists').update({ bought: true }).eq('id', id).single();
+}
+
+export async function deleteGroceryList() {
+    const user = getUser();
+
+    return await client.from('lists').delete().eq('user_id', user.id);
+}
+
+export async function deleteGrabbed() {
+    return await client.from('lists').delete().match({ bought: true });
+}
+
+export async function deleteSingleItem(id) {
+    return await client.from('lists').delete().eq('id', id).single();
+}

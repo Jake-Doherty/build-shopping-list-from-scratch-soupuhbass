@@ -1,0 +1,182 @@
+body {
+    width: 100%;
+    background-image: url('/assets/shopping-background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    justify-items: center;
+}
+
+nav > div > a {
+    padding: 3px;
+    border: 1px solid antiquewhite;
+    border-radius: 4px;
+    background-color: darkred;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.link-border-box {
+    padding: 8px 4px;
+    background-color: darkred;
+    border-radius: 5px;
+}
+
+.link-border-box:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    box-shadow: 2px 3px 5px 2px black;
+}
+
+main {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+label {
+    margin: 5px auto 0;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bolder;
+    color: darkred;
+}
+
+form {
+    display: grid;
+    padding: 5px;
+    gap: 5px;
+}
+
+#add-item-button {
+    margin: 0 5px 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#add-item-button:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
+
+#delete-list {
+    margin: 0 5px 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#delete-list:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
+
+#delete-completed {
+    margin: 0 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+
+#delete-completed:hover {
+    transform: scale(105%);
+    transition: all 100ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
+
+#form-and-delete-container {
+    width: fit-content;
+    display: grid;
+    gap: 10px;
+    background-color: antiquewhite;
+    border: 5px solid darkred;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.466);
+    box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.466);
+}
+
+#list-display {
+    padding: 0 5px 5px;
+    text-align: center;
+    background-color: darkred;
+    border: 5px solid antiquewhite;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.466);
+    box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.466);
+}
+
+#list-display h3 {
+    width: fit-content;
+    margin: 10px auto 5px;
+    padding: 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    text-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.521);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.466);
+}
+
+ul {
+    display: grid;
+    gap: 5px;
+    width: 200px;
+    padding: 5px;
+}
+
+li {
+    width: max-content;
+    margin: 0 auto;
+    padding: 0 5px;
+    background-color: darkred;
+    font-weight: bold;
+    color: antiquewhite;
+    text-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.521);
+    border-radius: 5px;
+}
+
+.purchased {
+    text-decoration: line-through;
+}
+
+.grocery-item {
+    background: linear-gradient(0deg, rgb(119, 111, 101), rgb(250, 235, 215));
+    border-radius: 5px;
+}
+
+.delete-single-item {
+    margin-bottom: 5px;
+    background-color: antiquewhite;
+    color: darkred;
+    border: 2px dotted darkred;
+    border-radius: 5px;
+}
+.delete-single-item:hover {
+    transform: scale(105%);
+    transition: all 250ms ease-in;
+    background-color: darkred;
+    color: antiquewhite;
+    font-weight: bold;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+}
